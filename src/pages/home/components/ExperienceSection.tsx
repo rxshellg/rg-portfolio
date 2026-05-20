@@ -1,7 +1,7 @@
 function ExperienceSection() {
   return (
     <>
-      <section>
+      <section id="experience" className="page-section">
         <h1>Experience</h1>
       </section>
     </>

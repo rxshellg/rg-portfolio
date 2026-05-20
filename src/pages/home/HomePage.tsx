@@ -1,22 +1,23 @@
 import AboutSection from "./components/AboutSection";
 import ContactSection from "./components/ContactSection";
-import EducationSection from "./components/EducationSection";
 import ExperienceSection from "./components/ExperienceSection";
 import HeroSection from "./components/HeroSection";
 import ProjectsSection from "./components/ProjectsSection";
+import SiteLayout from "../../components/layout/SiteLayout";
 import SkillsSection from "./components/SkillsSection";
 
 function HomePage() {
   return (
-    <main>
-      <HeroSection />
-      <AboutSection />
-      <ExperienceSection />
-      <ProjectsSection />
-      <SkillsSection />
-      <EducationSection />
-      <ContactSection />
-    </main>
+    <SiteLayout>
+      <main className="site-main">
+        <HeroSection />
+        <AboutSection />
+        <ExperienceSection />
+        <ProjectsSection />
+        <SkillsSection />
+        <ContactSection />
+      </main>
+    </SiteLayout>
   );
 }
 
