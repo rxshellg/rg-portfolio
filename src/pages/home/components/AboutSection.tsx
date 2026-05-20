@@ -1,7 +1,7 @@
 function AboutSection() {
   return (
     <>
-      <section>
+      <section id="about" className="page-section">
         <h1>About</h1>
       </section>
     </>
