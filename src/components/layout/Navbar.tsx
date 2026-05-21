@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { RiDownloadLine } from "react-icons/ri";
 import { navigationLinks } from "../../data/navigation";
 import "./Navbar.css";
 
@@ -54,12 +55,8 @@ function Navbar() {
         <div className="resume-section">
           <a href="/Rashell-Guerrero-Resume.pdf" download>
             Resume.pdf
+            <RiDownloadLine />
           </a>
-
-          <div
-            className="navbar-image-placeholder"
-            aria-label="Profile image placeholder"
-          />
         </div>
       </nav>
     </header>
