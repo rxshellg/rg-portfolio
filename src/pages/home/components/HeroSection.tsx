@@ -1,5 +1,6 @@
 import { FiArrowRight, FiMail } from "react-icons/fi";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import "./HeroSection.css";
 
 function HeroSection() {
   return (
