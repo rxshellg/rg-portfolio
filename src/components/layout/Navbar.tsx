@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { navigationLinks } from "../../data/navigation";
+import "./Navbar.css";
 
 function Navbar() {
   const [activeSection, setActiveSection] = useState("hero");
