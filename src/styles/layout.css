@@ -8,7 +8,7 @@
 
 .page-section {
   width: 100%;
-  min-height: calc(100vh - var(--navbar-height));
+  height: calc(100vh - var(--navbar-height));
   scroll-margin-top: var(--navbar-height);
 }
 
