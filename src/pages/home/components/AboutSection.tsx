@@ -49,7 +49,10 @@ function AboutSection() {
             </div>
           </div>
 
-          <a className="about-detail-card about-detail-link" href="#contact">
+          {/* <a className="about-detail-card about-detail-link" href="#contact">
+              -Commented out until built-
+          */}
+          <a className="about-detail-card about-detail-link" href="https://www.linkedin.com/in/rashell-guerrero/">
             <div>
               <span>Available for</span>
               <strong>Full-time opportunities</strong>

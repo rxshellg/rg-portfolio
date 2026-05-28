@@ -1,10 +1,10 @@
 import AboutSection from "./components/AboutSection";
-import ContactSection from "./components/ContactSection";
-import ExperienceSection from "./components/ExperienceSection";
+// import ContactSection from "./components/ContactSection";
+// import ExperienceSection from "./components/ExperienceSection";
 import HeroSection from "./components/HeroSection";
-import ProjectsSection from "./components/ProjectsSection";
+// import ProjectsSection from "./components/ProjectsSection";
 import SiteLayout from "../../components/layout/SiteLayout";
-import SkillsSection from "./components/SkillsSection";
+// import SkillsSection from "./components/SkillsSection";
 
 function HomePage() {
   return (
@@ -12,10 +12,10 @@ function HomePage() {
       <main className="site-main">
         <HeroSection />
         <AboutSection />
-        <ExperienceSection />
-        <ProjectsSection />
-        <SkillsSection />
-        <ContactSection />
+        {/* <ExperienceSection />    - commented out until built */}
+        {/* <ProjectsSection />      - commented out until built */}
+        {/* <SkillsSection />        - commented out until built */}
+        {/* <ContactSection />       - commented out until built */}
       </main>
     </SiteLayout>
   );
