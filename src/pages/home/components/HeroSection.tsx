@@ -20,12 +20,24 @@ function HeroSection() {
         </p>
 
         <div className="hero-actions">
-          <a className="hero-button hero-button-primary" href="#projects">
+          {/* <a className="hero-button hero-button-primary" href="#projects">
+              -Commented out until built-
+          */}
+          <a
+            className="hero-button hero-button-primary"
+            href="https://github.com/rxshellg"
+          >
             View my work
             <FiArrowRight aria-hidden="true" />
           </a>
 
-          <a className="hero-button hero-button-secondary" href="#contact">
+          {/* <a className="hero-button hero-button-secondary" href="#contact">
+              -Commented out until built-
+          */}
+          <a
+            className="hero-button hero-button-secondary"
+            href="mailto:rashellguerrero123@gmail.com"
+          >
             Get in touch
             <FiMail aria-hidden="true" />
           </a>
@@ -37,6 +49,7 @@ function HeroSection() {
             href="https://github.com/rxshellg"
             target="_blank"
             rel="noreferrer"
+            aria-label="GitHub profile"
           >
             <FaGithub aria-hidden="true" />
           </a>
@@ -44,10 +57,14 @@ function HeroSection() {
             href="https://www.linkedin.com/in/rashell-guerrero/"
             target="_blank"
             rel="noreferrer"
+            aria-label="LinkedIn profile"
           >
             <FaLinkedinIn aria-hidden="true" />
           </a>
-          <a href="mailto:rashellguerrero123@gmail.com">
+          <a
+            href="mailto:rashellguerrero123@gmail.com"
+            aria-label="Email Rashell"
+          >
             <FiMail aria-hidden="true" />
           </a>
         </div>
