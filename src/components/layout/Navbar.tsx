@@ -5,6 +5,7 @@ import "./Navbar.css";
 
 function Navbar() {
   const [activeSection, setActiveSection] = useState("hero");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const sections = navigationLinks
@@ -13,16 +14,10 @@ function Navbar() {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        const visibleSection = entries.find((entry) => entry.isIntersecting);
-
-        if (visibleSection?.target.id) {
-          setActiveSection(visibleSection.target.id);
-        }
+        const visible = entries.find((e) => e.isIntersecting);
+        if (visible?.target.id) setActiveSection(visible.target.id);
       },
-      {
-        rootMargin: "-72px 0px -55% 0px",
-        threshold: 0.1,
-      },
+      { rootMargin: "-72px 0px -55% 0px", threshold: 0.1 },
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -42,9 +37,7 @@ function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className={
-                activeSection === link.id ? "nav-link active" : "nav-link"
-              }
+              className={`nav-link${activeSection === link.id ? " active" : ""}`}
             >
               <span>{String(index + 1).padStart(2, "0")}.</span>
               {link.label}
@@ -52,13 +45,43 @@ function Navbar() {
           ))}
         </div>
 
-        <div className="resume-section">
-          <a href="/Rashell-Guerrero-Resume.pdf" download>
+        <div className="resume-and-menu">
+          <a
+            className="resume-section"
+            href="/Rashell-Guerrero-Resume.pdf"
+            download
+          >
             Resume.pdf
             <RiDownloadLine />
           </a>
+
+          <button
+            className="mobile-menu-button"
+            type="button"
+            aria-label="Toggle navigation menu"
+            aria-expanded={isMobileMenuOpen}
+            onClick={() => setIsMobileMenuOpen((current) => !current)}
+          >
+            {isMobileMenuOpen ? "✕" : "☰"}
+          </button>
         </div>
       </nav>
+
+      {isMobileMenuOpen && (
+        <div className="mobile-navbar-menu">
+          {navigationLinks.map((link, index) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`mobile-nav-link${activeSection === link.id ? " active" : ""}`}
+            >
+              <span>{String(index + 1).padStart(2, "0")}.</span>
+              {link.label}
+            </a>
+          ))}
+        </div>
+      )}
     </header>
   );
 }
