@@ -1,6 +1,6 @@
 .about-section {
   display: flex;
-  background-color: #EBDDD0;
+  background-color: #ebddd0;
   color: #111;
 }
 
@@ -98,5 +98,72 @@
 }
 
 .about-detail-card:hover {
-    box-shadow: 0 0 8px rgba(242, 119, 165, 0.75);
+  box-shadow: 0 0 8px var(--primary);
+}
+
+.about-image-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+    padding: 2rem 1.25rem 2.5rem;
+    height: auto;
+  }
+
+  .about-image,
+  .about-text {
+    min-height: unset;
+    width: 100%;
+  }
+
+  .about-image {
+    display: none;
+  }
+
+  .about-image-mobile {
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  .about-image-mobile img {
+    width: 100%;
+  }
+
+  .about-text {
+    padding-right: 0;
+  }
+
+  .about-heading {
+    font-size: clamp(2rem, 10vw, 3rem);
+    margin: 0.75rem 0 0;
+  }
+
+  .about-details {
+    flex-direction: column;
+  }
+
+  .about-detail-card {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .about-detail-card strong,
+  .about-detail-card span {
+    font-size: clamp(0.75rem, 3.5vw, 1rem);
+  }
+
+  .about-detail-link {
+  justify-content: space-between;
+}
+
+  .section-label {
+    font-size: clamp(0.9rem, 4.75vw, 1.5rem);
+  }
+
+  .about-description {
+    font-size: clamp(0.75rem, 3.5vw, 1rem);
+  }
 }

@@ -12,10 +12,12 @@ function AboutSection() {
         <p className="section-label">// About.me</p>
 
         <h2 className="about-heading">
-          Think. Design.
-
-          Build. <span>Refine.</span>
+          Think. Design. Build. <span>Refine.</span>
         </h2>
+
+        <div className="about-image-mobile" aria-hidden="true">
+          <img src="/About-Image.jpeg" alt="" />
+        </div>
 
         <p className="about-description">
           I&apos;m a full-stack software engineer with a soft spot for colorful,
@@ -52,7 +54,10 @@ function AboutSection() {
           {/* <a className="about-detail-card about-detail-link" href="#contact">
               -Commented out until built-
           */}
-          <a className="about-detail-card about-detail-link" href="https://www.linkedin.com/in/rashell-guerrero/">
+          <a
+            className="about-detail-card about-detail-link"
+            href="https://www.linkedin.com/in/rashell-guerrero/"
+          >
             <div>
               <span>Available for</span>
               <strong>Full-time opportunities</strong>
