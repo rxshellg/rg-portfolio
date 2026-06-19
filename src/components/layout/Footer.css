@@ -1,0 +1,217 @@
+.footer-root {
+  position: relative;
+  background-color: #0d0d0d;
+  overflow: hidden;
+}
+
+.footer-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+  z-index: 0;
+}
+
+.footer-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: stretch;
+  border-block: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-section-label {
+  margin: 0 0 1.2rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.footer-stats-col,
+.footer-contact-col {
+  padding: 1.4rem 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-stats-col {
+  flex: 0 0 auto;
+  padding-bottom: 0;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-stats {
+  display: flex;
+  gap: 3rem;
+}
+
+.footer-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer-stat-value {
+  font-family: "Press Start 2P", "Courier New", Courier, monospace;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  color: var(--primary);
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.footer-stat-label {
+  white-space: pre-line;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-stat-star {
+  font-size: clamp(1.4rem, 2.25vw, 2.3rem);
+  position: relative;
+  top: -0.25em;
+  line-height: 0.7em;
+}
+
+.footer-stat-infinity {
+  font-size: clamp(2.5rem, 4vw, 3.75rem);
+  font-weight: 800;
+  line-height: 0.5;
+  position: relative;
+  top: -0.25em;
+}
+
+.footer-contact-arrow {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-size: 1rem;
+  line-height: 0.5;
+  transition: color 0.2s;
+}
+
+.footer-contact-arrow:hover {
+  color: var(--primary);
+}
+
+.footer-terminal {
+  border: 1px solid var(--primary);
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.footer-terminal-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--primary);
+  color: #000;
+  padding: 0rem 0.6rem;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+
+.footer-terminal-controls {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.65rem;
+}
+
+.footer-terminal-body {
+  background: #1a0d14;
+  padding: 0.85rem 1rem;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.footer-terminal-body p {
+  margin: 0;
+}
+
+.footer-terminal-cta {
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+}
+
+.footer-terminal-cta:hover {
+  color: var(--primary);
+}
+
+.footer-terminal-prompt {
+  margin-top: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.7rem;
+}
+
+.footer-terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background: var(--primary);
+  animation: blink 1.1s step-end infinite;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 2rem;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.footer-bottom p {
+  margin: 0;
+  display: flex;
+  gap: 0.4rem;
+}
+
+.footer-heart {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;
+  }
+
+  .footer-stats-col {
+    padding: 1.75rem 1.5rem 1.25rem;
+  }
+
+  .footer-contact-col {
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 1.5rem 1.25rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.4rem;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .footer-stat-infinity {
+    line-height: 0.4;
+  }
+}
