@@ -1,0 +1,19 @@
+.footer-cat-container {
+  flex: 1 1 0;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.footer-cat-canvas {
+  display: block;
+  width: 100%;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+@media (max-width: 768px) {
+  .footer-cat-container {
+    display: none;
+  }
+}
