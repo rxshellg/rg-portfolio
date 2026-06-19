@@ -41,7 +41,7 @@ function getPose(t: number, elapsed: number) {
 function FooterCat() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const startTime = useRef(performance.now());
+  const startTime = useRef<number | null>(null);
   const [size, setSize] = useState({ width: 0, height: 0 });
   const [img, setImg] = useState<HTMLImageElement | null>(null);
 
@@ -74,6 +74,10 @@ function FooterCat() {
     let rafId: number;
 
     const tick = (now: number) => {
+      if (startTime.current === null) {
+        startTime.current = now;
+      }
+
       const elapsed = (now - startTime.current) / 1000;
       const { x, row, col } = getPose(elapsed % CYCLE_DURATION, elapsed);
 
