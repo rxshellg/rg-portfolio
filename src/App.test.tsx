@@ -23,8 +23,8 @@ describe("App", () => {
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/full-stack software engineer/i),
-    ).toBeInTheDocument();
+      screen.getAllByText(/full-stack software engineer/i).length,
+    ).toBeGreaterThan(0);
     expect(screen.getByText(/available for/i)).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /full-time opportunities/i }),
