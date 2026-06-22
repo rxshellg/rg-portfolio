@@ -45,7 +45,7 @@ describe("App", () => {
   it("has working primary links", () => {
     expect(screen.getByRole("link", { name: /view my work/i })).toHaveAttribute(
       "href",
-      "https://github.com/rxshellg",
+      "#projects",
     );
     expect(screen.getByRole("link", { name: /get in touch/i })).toHaveAttribute(
       "href",
