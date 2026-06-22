@@ -20,13 +20,7 @@ function HeroSection() {
         </p>
 
         <div className="hero-actions">
-          {/* <a className="hero-button hero-button-primary" href="#projects">
-              -Commented out until built-
-          */}
-          <a
-            className="hero-button hero-button-primary"
-            href="https://github.com/rxshellg"
-          >
+          <a className="hero-button hero-button-primary" href="#projects">
             View my work
             <FiArrowRight aria-hidden="true" />
           </a>
