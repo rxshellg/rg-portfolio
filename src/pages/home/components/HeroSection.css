@@ -121,7 +121,7 @@
   .hero-section {
     display: flex;
     flex-direction: column;
-    height: calc(100svh + var(--navbar-height));
+    height: auto;
     overflow: hidden;
   }
 
