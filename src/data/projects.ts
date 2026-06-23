@@ -49,4 +49,14 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/rxshellg/bill-buddy",
     featured: true,
   },
+  {
+    id: "customer-manager",
+    title: "Customer Manager",
+    description: "Simple full-stack customer management application.",
+    images: ["/projects/CustomerManager-1.jpeg"],
+    techStack: ["Spring Boot", "Thymeleaf", "Bootstrap"],
+    liveDemoUrl: "", // TO-DO: post live demo link
+    githubUrl: "https://github.com/rxshellg/customer-manager",
+    featured: true,
+  },
 ];

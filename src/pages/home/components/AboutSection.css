@@ -134,8 +134,7 @@
 @media (max-width: 768px) {
   .about-section {
     flex-direction: column;
-    padding: 2rem 1.25rem 2.5rem;
-    height: auto;
+    padding: 2rem 1.25rem;
   }
 
   .about-image,
