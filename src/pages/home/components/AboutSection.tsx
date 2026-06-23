@@ -3,7 +3,7 @@ import { useTypewriter } from "../../../hooks/useTypewriter";
 import "./AboutSection.css";
 
 const aboutParagraphs = [
-  "I'm a full-stack software engineer with a soft spot for colorful, detail-driven front-end work. I've worked across frontend and backend development in production environments, but what keeps me interested is the full experience: understanding the problem, shaping the flow, building the pieces, and refining the details until the product feels right.",
+  "I'm a full-stack software engineer with a soft spot for colorful, detail-driven front-end work. I've worked across frontend and backend, but what drives me is the full product experience: understanding the problem, shaping the flow, building, and refining until it feels right.",
   "I like work that gives me room to think deeply, ask good questions, and take ownership from idea to implementation. Whether I'm collaborating with a team or working through a problem independently, I care about being someone people can trust to follow through and make the work better.",
   "Outside of code, you can usually find me at the beach, playing Minecraft, listening to music, or spending time with my friends and family.",
 ];
