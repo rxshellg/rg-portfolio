@@ -4,7 +4,7 @@ import AboutSection from "./components/AboutSection";
 import HeroSection from "./components/HeroSection";
 import ProjectsSection from "./components/ProjectsSection";
 import SiteLayout from "../../components/layout/SiteLayout";
-// import SkillsSection from "./components/SkillsSection";
+import SkillsSection from "./components/SkillsSection";
 
 function HomePage() {
   return (
@@ -14,7 +14,7 @@ function HomePage() {
         <AboutSection />
         {/* <ExperienceSection />    - commented out until built */}
         <ProjectsSection />
-        {/* <SkillsSection />        - commented out until built */}
+        <SkillsSection />
         {/* <ContactSection />       - commented out until built */}
       </main>
     </SiteLayout>
