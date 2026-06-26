@@ -20,7 +20,7 @@ function AboutSection() {
       <div className="about-text">
         <p className="section-label">// About.me</p>
 
-        <h2 className="about-heading">
+        <h2 className="section-heading">
           Think. Design. Build. <span>Refine.</span>
         </h2>
 
