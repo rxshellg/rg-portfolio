@@ -28,7 +28,7 @@ describe("App", () => {
     expect(screen.getByText(/available for/i)).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /full-time opportunities/i }),
-    ).toHaveAttribute("href", "https://www.linkedin.com/in/rashell-guerrero/");
+    ).toHaveAttribute("href", "#contact");
   });
 
   it("renders the expected page sections", () => {
@@ -49,7 +49,7 @@ describe("App", () => {
     );
     expect(screen.getByRole("link", { name: /get in touch/i })).toHaveAttribute(
       "href",
-      "mailto:rashellguerrero123@gmail.com",
+      "#contact",
     );
     expect(screen.getByRole("link", { name: /resume\.pdf/i })).toHaveAttribute(
       "href",

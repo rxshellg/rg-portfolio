@@ -1,5 +1,5 @@
 import AboutSection from "./components/AboutSection";
-// import ContactSection from "./components/ContactSection";
+import ContactSection from "./components/ContactSection";
 // import ExperienceSection from "./components/ExperienceSection";
 import HeroSection from "./components/HeroSection";
 import ProjectsSection from "./components/ProjectsSection";
@@ -15,7 +15,7 @@ function HomePage() {
         {/* <ExperienceSection />    - commented out until built */}
         <ProjectsSection />
         <SkillsSection />
-        {/* <ContactSection />       - commented out until built */}
+        <ContactSection />
       </main>
     </SiteLayout>
   );

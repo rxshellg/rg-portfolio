@@ -1,4 +1,5 @@
 import { FiHeart } from "react-icons/fi";
+import { socials } from "../../data/socials";
 import FooterCat from "./FooterCat";
 import "./Footer.css";
 
@@ -44,7 +45,7 @@ function Footer() {
           <p className="footer-section-label">
             // LET&apos;S CONNECT{" "}
             <a
-              href="https://www.linkedin.com/in/rashell-guerrero/"
+              href={socials.find((s) => s.label === "LinkedIn")!.href}
               className="footer-contact-arrow"
               target="_blank"
               rel="noreferrer"
@@ -69,7 +70,7 @@ function Footer() {
                 I&apos;m currently open to new opportunities. Have a project in
                 mind or just want to say hi?{" "}
                 <a
-                  href="mailto:rashellguerrero123@gmail.com"
+                  href={socials.find((s) => s.label === "LinkedIn")!.href}
                   className="footer-terminal-cta"
                 >
                   Let&apos;s connect!
