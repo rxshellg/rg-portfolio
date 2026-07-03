@@ -1,0 +1,142 @@
+.contact-section {
+  --muted: rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  background: #f8e5dc;
+  gap: 2rem;
+  color: #111;
+  padding: 2rem 3rem;
+}
+
+.contact-left,
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-left {
+  width: 40%;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 0.5rem;
+  padding: 1rem;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+.contact-field-row {
+  display: flex;
+  gap: 0.85rem;
+}
+
+.contact-field-row .contact-field {
+  flex: 1;
+}
+
+.contact-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.contact-field label {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+
+.contact-field input,
+.contact-field textarea {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid var(--muted);
+  border-radius: 5px;
+  font: inherit;
+  font-size: 0.7rem;
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  resize: none;
+  transition: border-color 0.2s;
+}
+
+.contact-field input::placeholder,
+.contact-field textarea::placeholder {
+  color: var(--muted);
+}
+
+.contact-field input:focus,
+.contact-field textarea:focus {
+  border-color: var(--primary);
+}
+
+.contact-field input:focus::placeholder,
+.contact-field textarea:focus::placeholder {
+  color: transparent;
+}
+
+.contact-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary);
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.contact-submit:hover {
+  opacity: 0.85;
+}
+
+.contact-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.contact-right img {
+  display: block;
+  width: 100%;
+}
+
+.contact-status {
+  font-size: 0.78rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.contact-status--success {
+  background: rgba(0, 200, 100, 0.1);
+  color: #1a7a45;
+  border: 1px solid rgba(0, 200, 100, 0.3);
+}
+
+.contact-status--error {
+  background: rgba(220, 50, 50, 0.1);
+  color: #a02020;
+  border: 1px solid rgba(220, 50, 50, 0.3);
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    flex-direction: column;
+    height: auto;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .contact-left {
+    width: 100%;
+  }
+}

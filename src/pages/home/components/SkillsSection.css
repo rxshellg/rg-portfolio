@@ -27,10 +27,8 @@
 }
 
 .skills-description {
-  margin: 0.25rem 0 1.75rem;
-  font-size: 0.85rem;
+  margin: 0.75rem 0rem;
   line-height: 1.6;
-  color: var(--muted);
 }
 
 .skills-image {
@@ -91,7 +89,7 @@
 .skills-tab[data-active="true"] {
   color: var(--primary);
   background: rgba(242, 119, 165, 0.07);
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid black;
   margin-bottom: -1px;
 }
 

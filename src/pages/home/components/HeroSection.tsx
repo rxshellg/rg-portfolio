@@ -1,5 +1,6 @@
 import { FiArrowRight, FiMail } from "react-icons/fi";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { socials } from "../../../data/socials";
 import "./HeroSection.css";
 
 function HeroSection() {
@@ -25,13 +26,7 @@ function HeroSection() {
             <FiArrowRight aria-hidden="true" />
           </a>
 
-          {/* <a className="hero-button hero-button-secondary" href="#contact">
-              -Commented out until built-
-          */}
-          <a
-            className="hero-button hero-button-secondary"
-            href="mailto:rashellguerrero123@gmail.com"
-          >
+          <a className="hero-button hero-button-secondary" href="#contact">
             Get in touch
             <FiMail aria-hidden="true" />
           </a>
@@ -40,7 +35,7 @@ function HeroSection() {
         <div className="hero-socials" aria-label="Social links">
           <span>Find me on</span>
           <a
-            href="https://github.com/rxshellg"
+            href={socials.find((s) => s.label === "GitHub")!.href}
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub profile"
@@ -48,7 +43,7 @@ function HeroSection() {
             <FaGithub aria-hidden="true" />
           </a>
           <a
-            href="https://www.linkedin.com/in/rashell-guerrero/"
+            href={socials.find((s) => s.label === "LinkedIn")!.href}
             target="_blank"
             rel="noreferrer"
             aria-label="LinkedIn profile"
@@ -56,7 +51,7 @@ function HeroSection() {
             <FaLinkedinIn aria-hidden="true" />
           </a>
           <a
-            href="mailto:rashellguerrero123@gmail.com"
+            href={socials.find((s) => s.label === "Email")!.href}
             aria-label="Email Rashell"
           >
             <FiMail aria-hidden="true" />

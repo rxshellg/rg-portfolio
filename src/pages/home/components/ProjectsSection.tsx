@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
 import ProjectCard from "../../../components/ui/ProjectCard";
 import { projects } from "../../../data/projects";
+import { socials } from "../../../data/socials";
 import "./ProjectsSection.css";
 
 const featuredProjects = projects.filter((p) => p.featured).slice(0, 4);
@@ -23,7 +24,10 @@ function ProjectsSection() {
 
       <div className="projects-header">
         <p className="section-label projects-label">// FEATURED.PROJECTS</p>
-        <a className="projects-view-all" href="https://github.com/rxshellg/">
+        <a
+          className="projects-view-all"
+          href={socials.find((s) => s.label === "GitHub")!.href}
+        >
           VIEW ALL PROJECTS <FiArrowRight aria-hidden="true" />
         </a>
       </div>

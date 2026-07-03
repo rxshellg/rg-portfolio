@@ -4,5 +4,5 @@ export const navigationLinks = [
   { label: "Projects", href: "#projects", id: "projects" },
   { label: "Skills", href: "#skills", id: "skills" },
   //  { label: "Experience", href: "#experience", id: "experience" },
-  //  { label: "Contact", href: "#contact", id: "contact" },
+  { label: "Contact", href: "#contact", id: "contact" },
 ];
