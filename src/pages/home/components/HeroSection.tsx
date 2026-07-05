@@ -1,12 +1,12 @@
 import { FiArrowRight, FiMail } from "react-icons/fi";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { socials } from "../../../data/socials";
+import { social } from "../../../data/socials";
 import "./HeroSection.css";
 
 function HeroSection() {
   return (
     <section id="hero" className="page-section hero-section">
-      <div className="hero-text">
+      <div className="hero-text center-column">
         <p className="hero-eyebrow">Hi, I&apos;m</p>
 
         <h1 className="hero-heading">
@@ -35,7 +35,7 @@ function HeroSection() {
         <div className="hero-socials" aria-label="Social links">
           <span>Find me on</span>
           <a
-            href={socials.find((s) => s.label === "GitHub")!.href}
+            href={social.github.href}
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub profile"
@@ -43,17 +43,14 @@ function HeroSection() {
             <FaGithub aria-hidden="true" />
           </a>
           <a
-            href={socials.find((s) => s.label === "LinkedIn")!.href}
+            href={social.linkedin.href}
             target="_blank"
             rel="noreferrer"
             aria-label="LinkedIn profile"
           >
             <FaLinkedinIn aria-hidden="true" />
           </a>
-          <a
-            href={socials.find((s) => s.label === "Email")!.href}
-            aria-label="Email Rashell"
-          >
+          <a href={social.email.href} aria-label="Email Rashell">
             <FiMail aria-hidden="true" />
           </a>
         </div>

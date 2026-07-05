@@ -48,7 +48,7 @@ function ProjectCard({
 
         <span className="project-card-mobile-main">
           <span className="project-card-mobile-image" aria-hidden="true">
-            <img src={images[0]} alt="" />
+            <img className="cover-img" src={images[0]} alt="" />
           </span>
 
           <span className="project-card-mobile-content">
@@ -85,6 +85,7 @@ function ProjectCard({
 
       <div className="project-card-image">
         <img
+          className="cover-img"
           src={images[activeImageIndex]}
           alt={
             images.length > 1
@@ -129,7 +130,7 @@ function ProjectCard({
         <h3 className="project-card-title">{title}</h3>
         <p className="project-card-description">{description}</p>
 
-        <ul className="project-card-stack">
+        <ul className="project-card-stack clean-list">
           {techStack.map((tech) => (
             <li className="project-card-pill" key={tech}>
               {tech}
@@ -140,7 +141,7 @@ function ProjectCard({
         <div className="project-card-actions">
           {liveDemoUrl ? (
             <a
-              className="project-card-demo"
+              className="project-card-demo ui-button"
               href={liveDemoUrl}
               target="_blank"
               rel="noreferrer"
@@ -149,7 +150,7 @@ function ProjectCard({
             </a>
           ) : (
             <span
-              className="project-card-demo project-card-demo--disabled"
+              className="project-card-demo project-card-demo--disabled ui-button"
               aria-disabled="true"
             >
               LIVE DEMO <FiArrowRight aria-hidden="true" />
@@ -158,7 +159,7 @@ function ProjectCard({
 
           {githubUrl && (
             <a
-              className="project-card-github"
+              className="project-card-github ui-button"
               href={githubUrl}
               target="_blank"
               rel="noreferrer"

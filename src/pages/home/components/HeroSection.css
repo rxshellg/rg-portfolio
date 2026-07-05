@@ -1,7 +1,7 @@
 .hero-section {
   position: relative;
   overflow: hidden;
-  background-color: black;
+  background: black;
   color: white;
 }
 
@@ -9,26 +9,20 @@
   position: relative;
   z-index: 2;
   width: 45%;
-  min-height: calc(100vh - var(--navbar-height));
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  min-height: var(--page-height);
   padding-left: 3rem;
 }
 
 .hero-eyebrow {
-  line-height: 1;
+  margin: 0;
   font-size: 1.5rem;
   font-weight: 600;
-  margin: 0;
+  line-height: 1;
 }
 
 .hero-heading {
   margin: 0;
-  font-family: "Press Start 2P", "Courier New", Courier, monospace;
-  font-size: clamp(2.25rem, 5.2vw, 5rem);
-  line-height: 1.1;
-  font-weight: 400;
+  font: 400 clamp(2.25rem, 5.2vw, 5rem)/1.1 "Press Start 2P", "Courier New", Courier, monospace;
 }
 
 .hero-heading span {
@@ -38,17 +32,15 @@
 }
 
 .hero-heading-first {
-  color: var(--primary);
   margin-top: 0.4rem;
+  color: var(--primary);
 }
 
-.hero-heading-last {
-  color: white;
-}
+.hero-heading-last { color: white; }
 
 .hero-description {
-  margin: 1.5rem 0 1rem;
   max-width: 34rem;
+  margin: 1.5rem 0 1rem;
   font-size: 1.1rem;
   line-height: 1.6;
 }
@@ -63,20 +55,20 @@
   align-items: center;
   justify-content: center;
   min-width: 10rem;
+  gap: 1rem;
+  padding: 0.8rem 1.4rem;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 0.85rem;
   letter-spacing: 0.04em;
-  padding: 0.8rem 1.4rem;
-  gap: 1rem;
 }
 
 .hero-button-primary {
+  margin-right: 1rem;
   background: var(--primary);
   color: #000;
   outline: 1px solid black;
   outline-offset: -3px;
-  margin-right: 1rem;
 }
 
 .hero-button-secondary {
@@ -84,9 +76,8 @@
   outline: 1px solid var(--primary);
 }
 
-.hero-button-primary:hover, .hero-button-secondary:hover {
-  box-shadow: 0 0 8px rgba(242, 119, 165, 0.75);
-}
+.hero-button-primary:hover,
+.hero-button-secondary:hover { box-shadow: 0 0 8px rgba(242, 119, 165, 0.75); }
 
 .hero-socials {
   display: flex;
@@ -99,30 +90,26 @@
   letter-spacing: 0.08em;
 }
 
-.hero-socials a {
-  color: grey;
-}
+.hero-socials a { color: grey; }
 
 .hero-image {
   position: absolute;
   top: 0;
   right: 0;
-  height: 100%;
   z-index: 1;
+  height: 100%;
 }
 
 .hero-image img {
-  height: 100%;
-  width: auto;
   display: block;
+  width: auto;
+  height: 100%;
 }
 
 @media (max-width: 768px) {
   .hero-section {
     display: flex;
     flex-direction: column;
-    height: auto;
-    overflow: hidden;
   }
 
   .hero-image {
@@ -141,21 +128,13 @@
   .hero-text {
     width: 100%;
     min-height: unset;
-    padding: 1.25rem 1.25rem 1.25rem;
     flex-shrink: 0;
+    padding: 1.25rem;
   }
 
-  .hero-eyebrow {
-    font-size: clamp(0.9rem, 5.5vw, 1.75rem);
-  }
-
-  .hero-heading {
-    font-size: clamp(2rem, 11vw, 3rem);
-  }
-
-  .hero-description {
-    font-size: clamp(0.75rem, 4.3vw, 1.25rem);
-  }
+  .hero-eyebrow { font-size: clamp(0.9rem, 5.5vw, 1.75rem); }
+  .hero-heading { font-size: clamp(2rem, 11vw, 3rem); }
+  .hero-description { font-size: clamp(0.75rem, 4.3vw, 1.25rem); }
 
   .hero-actions {
     display: flex;
@@ -169,11 +148,7 @@
   }
 
   .hero-button,
-  .hero-socials {
-    font-size: clamp(0.5rem, 3vw, 0.9rem);
-  }
+  .hero-socials { font-size: clamp(0.5rem, 3vw, 0.9rem); }
 
-  .hero-button-primary {
-    margin-right: 0;
-  }
+  .hero-button-primary { margin-right: 0; }
 }

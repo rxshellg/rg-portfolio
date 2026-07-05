@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
 import ProjectCard from "../../../components/ui/ProjectCard";
 import { projects } from "../../../data/projects";
-import { socials } from "../../../data/socials";
+import { social } from "../../../data/socials";
 import "./ProjectsSection.css";
 
 const featuredProjects = projects.filter((p) => p.featured).slice(0, 4);
@@ -12,7 +12,10 @@ function ProjectsSection() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   return (
-    <section id="projects" className="page-section projects-section">
+    <section
+      id="projects"
+      className="page-section section-pad projects-section"
+    >
       <div className="projects-big-stars" aria-hidden="true">
         {STARS.map((star) => (
           <span
@@ -24,10 +27,7 @@ function ProjectsSection() {
 
       <div className="projects-header">
         <p className="section-label projects-label">// FEATURED.PROJECTS</p>
-        <a
-          className="projects-view-all"
-          href={socials.find((s) => s.label === "GitHub")!.href}
-        >
+        <a className="projects-view-all" href={social.github.href}>
           VIEW ALL PROJECTS <FiArrowRight aria-hidden="true" />
         </a>
       </div>

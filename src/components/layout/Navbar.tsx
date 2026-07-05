@@ -9,21 +9,36 @@ function Navbar() {
 
   useEffect(() => {
     const sections = navigationLinks
-      .map((link) => document.getElementById(link.id))
+      .map(({ id }) => document.getElementById(id))
       .filter((section): section is HTMLElement => section !== null);
 
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries.find((e) => e.isIntersecting);
+        const visible = entries.find(({ isIntersecting }) => isIntersecting);
         if (visible?.target.id) setActiveSection(visible.target.id);
       },
       { rootMargin: "-72px 0px -55% 0px", threshold: 0.1 },
     );
 
     sections.forEach((section) => observer.observe(section));
-
     return () => observer.disconnect();
   }, []);
+
+  const navLinks = (mobile = false) =>
+    navigationLinks.map(({ href, id, label }, index) => {
+      const base = mobile ? "mobile-nav-link" : "nav-link";
+      return (
+        <a
+          key={href}
+          href={href}
+          onClick={mobile ? () => setIsMobileMenuOpen(false) : undefined}
+          className={`${base}${activeSection === id ? " active" : ""}`}
+        >
+          <span>{String(index + 1).padStart(2, "0")}.</span>
+          {label}
+        </a>
+      );
+    });
 
   return (
     <header className="site-navbar">
@@ -32,18 +47,7 @@ function Navbar() {
           {"< RG />"}
         </a>
 
-        <div className="navbar-links">
-          {navigationLinks.map((link, index) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`nav-link${activeSection === link.id ? " active" : ""}`}
-            >
-              <span>{String(index + 1).padStart(2, "0")}.</span>
-              {link.label}
-            </a>
-          ))}
-        </div>
+        <div className="navbar-links">{navLinks()}</div>
 
         <div className="resume-and-menu">
           <a
@@ -60,7 +64,7 @@ function Navbar() {
             type="button"
             aria-label="Toggle navigation menu"
             aria-expanded={isMobileMenuOpen}
-            onClick={() => setIsMobileMenuOpen((current) => !current)}
+            onClick={() => setIsMobileMenuOpen((open) => !open)}
           >
             {isMobileMenuOpen ? "✕" : "☰"}
           </button>
@@ -68,19 +72,7 @@ function Navbar() {
       </nav>
 
       {isMobileMenuOpen && (
-        <div className="mobile-navbar-menu">
-          {navigationLinks.map((link, index) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className={`mobile-nav-link${activeSection === link.id ? " active" : ""}`}
-            >
-              <span>{String(index + 1).padStart(2, "0")}.</span>
-              {link.label}
-            </a>
-          ))}
-        </div>
+        <div className="mobile-navbar-menu">{navLinks(true)}</div>
       )}
     </header>
   );

@@ -12,12 +12,12 @@ function AboutSection() {
   const typedText = useTypewriter(aboutParagraphs);
 
   return (
-    <section id="about" className="page-section about-section">
-      <div className="about-image" aria-hidden="true">
-        <img src="/About-Image.jpeg" alt="" />
+    <section id="about" className="page-section split about-section">
+      <div className="about-image center-box" aria-hidden="true">
+        <img className="img-block" src="/About-Image.jpeg" alt="" />
       </div>
 
-      <div className="about-text">
+      <div className="about-text center-column">
         <p className="section-label">// About.me</p>
 
         <h2 className="section-heading">
@@ -25,7 +25,7 @@ function AboutSection() {
         </h2>
 
         <div className="about-image-mobile" aria-hidden="true">
-          <img src="/About-Image.jpeg" alt="" />
+          <img className="img-block" src="/About-Image.jpeg" alt="" />
         </div>
 
         <div className="about-description-desktop">
