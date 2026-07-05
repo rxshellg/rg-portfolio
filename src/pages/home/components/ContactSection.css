@@ -1,27 +1,19 @@
 .contact-section {
   --muted: rgba(0, 0, 0, 0.3);
-
-  display: flex;
-  background: #f8e5dc;
   gap: 2rem;
+  background: #f8e5dc;
   color: #111;
-  padding: 2rem 3rem;
 }
 
-.contact-left,
-.contact-right {
+.contact-left { width: 40%; }
+
+.contact-form,
+.contact-field {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-}
-
-.contact-left {
-  width: 40%;
 }
 
 .contact-form {
-  display: flex;
-  flex-direction: column;
   gap: 0.85rem;
   margin-top: 0.5rem;
   padding: 1rem;
@@ -34,15 +26,8 @@
   gap: 0.85rem;
 }
 
-.contact-field-row .contact-field {
-  flex: 1;
-}
-
-.contact-field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
+.contact-field-row .contact-field { flex: 1; }
+.contact-field { gap: 0.35rem; }
 
 .contact-field label {
   font-size: 0.75rem;
@@ -63,25 +48,11 @@
   transition: border-color 0.2s;
 }
 
-.contact-field input::placeholder,
-.contact-field textarea::placeholder {
-  color: var(--muted);
-}
-
-.contact-field input:focus,
-.contact-field textarea:focus {
-  border-color: var(--primary);
-}
-
-.contact-field input:focus::placeholder,
-.contact-field textarea:focus::placeholder {
-  color: transparent;
-}
+.contact-field :is(input, textarea)::placeholder { color: var(--muted); }
+.contact-field :is(input, textarea):focus { border-color: var(--primary); }
+.contact-field :is(input, textarea):focus::placeholder { color: transparent; }
 
 .contact-submit {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 0.6rem;
   padding: 0.75rem 1.5rem;
   background: var(--primary);
@@ -96,9 +67,7 @@
   transition: opacity 0.2s;
 }
 
-.contact-submit:hover {
-  opacity: 0.85;
-}
+.contact-submit:hover { opacity: 0.85; }
 
 .contact-submit:disabled {
   opacity: 0.6;
@@ -111,10 +80,10 @@
 }
 
 .contact-status {
-  font-size: 0.78rem;
+  margin: 0;
   padding: 0.5rem 0.75rem;
   border-radius: 4px;
-  margin: 0;
+  font-size: 0.78rem;
 }
 
 .contact-status--success {
@@ -130,13 +99,5 @@
 }
 
 @media (max-width: 768px) {
-  .contact-section {
-    flex-direction: column;
-    height: auto;
-    padding: 2.5rem 1.5rem;
-  }
-
-  .contact-left {
-    width: 100%;
-  }
+  .contact-left { width: 100%; }
 }

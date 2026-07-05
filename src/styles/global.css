@@ -5,6 +5,17 @@
 :root {
   --primary: #f277a5;
   --navbar-height: 72px;
+  --page-height: calc(100vh - var(--navbar-height));
+  --section-pad: 2rem 3rem;
+  --section-pad-mobile: 2.5rem 1.5rem;
+  --panel: #0d0d0d;
+  --panel-dark: #1a0d14;
+  --pink-line: rgba(242, 119, 165, 0.3);
+  --dash: repeating-linear-gradient(
+    to right,
+    rgba(242, 119, 165, 0.3) 0 4px,
+    transparent 4px 10px
+  );
 }
 
 html {

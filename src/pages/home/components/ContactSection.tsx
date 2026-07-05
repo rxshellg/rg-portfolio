@@ -16,6 +16,24 @@ const STATUS_MESSAGES = {
   error: "Something went wrong. Try again or email me directly.",
 };
 
+const fields = [
+  ["Name", "name", "text", "Your name"],
+  ["Email", "email", "email", "you@example.com"],
+  ["Subject", "subject", "text", "How can I help?"],
+] as const;
+
+function ContactField({ field }: { field: (typeof fields)[number] }) {
+  const [label, name, type, placeholder] = field;
+  const id = `contact-${name}`;
+
+  return (
+    <div className="contact-field">
+      <label htmlFor={id}>{label}</label>
+      <input id={id} name={name} type={type} placeholder={placeholder} />
+    </div>
+  );
+}
+
 function ContactSection() {
   const [status, setStatus] = useState<Status>("idle");
   const isSending = status === "sending";
@@ -31,7 +49,6 @@ function ContactSection() {
       await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form, {
         publicKey: PUBLIC_KEY,
       });
-
       form.reset();
       setStatus("success");
     } catch {
@@ -40,8 +57,11 @@ function ContactSection() {
   }
 
   return (
-    <section id="contact" className="page-section contact-section">
-      <div className="contact-left">
+    <section
+      id="contact"
+      className="page-section section-pad split contact-section"
+    >
+      <div className="contact-left center-column">
         <p className="section-label">// Contact</p>
 
         <h2 className="section-heading">
@@ -50,36 +70,12 @@ function ContactSection() {
 
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="contact-field-row">
-            <div className="contact-field">
-              <label htmlFor="contact-name">Name</label>
-              <input
-                id="contact-name"
-                name="name"
-                type="text"
-                placeholder="Your name"
-              />
-            </div>
-
-            <div className="contact-field">
-              <label htmlFor="contact-email">Email</label>
-              <input
-                id="contact-email"
-                name="email"
-                type="email"
-                placeholder="you@example.com"
-              />
-            </div>
+            {fields.slice(0, 2).map((field) => (
+              <ContactField key={field[1]} field={field} />
+            ))}
           </div>
 
-          <div className="contact-field">
-            <label htmlFor="contact-subject">Subject</label>
-            <input
-              id="contact-subject"
-              name="subject"
-              type="text"
-              placeholder="How can I help?"
-            />
-          </div>
+          <ContactField field={fields[2]} />
 
           <div className="contact-field">
             <label htmlFor="contact-message">Message</label>
@@ -97,14 +93,14 @@ function ContactSection() {
             </p>
           )}
 
-          <button className="contact-submit" disabled={isSending}>
+          <button className="contact-submit ui-button" disabled={isSending}>
             {isSending ? "SENDING..." : "SEND MESSAGE"}
             {!isSending && <FiSend aria-hidden="true" />}
           </button>
         </form>
       </div>
 
-      <div className="contact-right">
+      <div className="contact-right center-column">
         <img src="/Contact-Image.png" alt="" aria-hidden="true" />
       </div>
     </section>

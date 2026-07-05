@@ -11,14 +11,22 @@
 
 .section-heading {
   margin: 1.4rem 0 0.3rem;
-  font-size: clamp(1rem, 2.5vw, 3rem);
-  font-family: "Press Start 2P", "Courier New", Courier, monospace;
+  font: clamp(1rem, 2.5vw, 3rem)/1.3 "Press Start 2P", "Courier New", Courier, monospace;
   letter-spacing: -0.04em;
-  line-height: 1.3;
 }
 
-.section-heading span {
-  color: var(--primary);
+.section-heading span { color: var(--primary); }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 @media (max-width: 768px) {

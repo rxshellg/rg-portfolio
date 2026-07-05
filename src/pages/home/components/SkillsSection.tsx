@@ -12,7 +12,7 @@ function SkillsSection() {
       skills.hardCategories.map(({ label, skills: items }) => (
         <section key={label} className="skills-category">
           <h3 className="skills-category-label">{label}</h3>
-          <ul className="skills-icon-grid">
+          <ul className="skills-icon-grid clean-list">
             {items.map(({ name, Icon }) => (
               <li key={name} className="skills-icon-item">
                 <div className="skills-icon">
@@ -25,7 +25,7 @@ function SkillsSection() {
         </section>
       ))
     ) : (
-      <ul className="skills-soft">
+      <ul className="skills-soft clean-list">
         {skills.soft.map(({ name, Icon, description, level }) => (
           <li key={name} className="skills-soft-item">
             <div className="skills-icon">
@@ -57,8 +57,11 @@ function SkillsSection() {
     );
 
   return (
-    <section id="skills" className="page-section skills-section">
-      <div className="skills-left">
+    <section
+      id="skills"
+      className="page-section section-pad split skills-section"
+    >
+      <div className="skills-left center-column">
         <p className="section-label">// Skills</p>
         <h2 className="section-heading">
           <span>Tools</span> I craft with
@@ -70,7 +73,7 @@ function SkillsSection() {
         <img className="skills-image" src="/Skills-Image.png" alt="" />
       </div>
 
-      <div className="skills-right">
+      <div className="skills-right center-column">
         <div className="skills-window" role="region" aria-label="Skills window">
           <div className="skills-window-titlebar">
             <div className="skills-window-tabs" role="tablist">
