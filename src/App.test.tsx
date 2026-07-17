@@ -51,10 +51,6 @@ describe("App", () => {
       "href",
       "#contact",
     );
-    expect(screen.getByRole("link", { name: /resume\.pdf/i })).toHaveAttribute(
-      "href",
-      "/Rashell-Guerrero-Resume.pdf",
-    );
   });
 
   it("has accessible social links", () => {

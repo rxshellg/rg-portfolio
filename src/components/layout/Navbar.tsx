@@ -1,11 +1,18 @@
 import { useEffect, useState } from "react";
 import { RiDownloadLine } from "react-icons/ri";
 import { navigationLinks } from "../../data/navigation";
+import ResumeModal from "../ui/ResumeModal";
 import "./Navbar.css";
 
 function Navbar() {
   const [activeSection, setActiveSection] = useState("hero");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
+
+  function handleGetInTouch() {
+    setIsResumeModalOpen(false);
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  }
 
   useEffect(() => {
     const sections = navigationLinks
@@ -50,14 +57,14 @@ function Navbar() {
         <div className="navbar-links">{navLinks()}</div>
 
         <div className="resume-and-menu">
-          <a
+          <button
+            type="button"
             className="resume-section"
-            href="/Rashell-Guerrero-Resume.pdf"
-            download
+            onClick={() => setIsResumeModalOpen(true)}
           >
             Resume.pdf
-            <RiDownloadLine />
-          </a>
+            <RiDownloadLine aria-hidden="true" />
+          </button>
 
           <button
             className="mobile-menu-button"
@@ -74,6 +81,12 @@ function Navbar() {
       {isMobileMenuOpen && (
         <div className="mobile-navbar-menu">{navLinks(true)}</div>
       )}
+
+      <ResumeModal
+        isOpen={isResumeModalOpen}
+        onClose={() => setIsResumeModalOpen(false)}
+        onGetInTouch={handleGetInTouch}
+      />
     </header>
   );
 }

@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { render, screen, within } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import Navbar from "./Navbar";
 
 describe("Navbar", () => {
@@ -31,9 +31,11 @@ describe("Navbar", () => {
     );
   });
 
-  it("renders the resume download link", () => {
-    const resumeLink = within(nav).getByRole("link", { name: /resume\.pdf/i });
-    expect(resumeLink).toHaveAttribute("href", "/Rashell-Guerrero-Resume.pdf");
-    expect(resumeLink).toHaveAttribute("download");
+  it("opens the resume modal", () => {
+    fireEvent.click(within(nav).getByRole("button", { name: /resume\.pdf/i }));
+
+    expect(
+      screen.getByRole("dialog", { name: /hey there/i }),
+    ).toBeInTheDocument();
   });
 });
