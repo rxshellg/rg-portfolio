@@ -68,7 +68,11 @@ function ContactSection() {
           Say hello. <span>I don't bite.</span>
         </h2>
 
-        <form className="contact-form" onSubmit={handleSubmit}>
+        <form
+          className="contact-form"
+          aria-label="Contact form"
+          onSubmit={handleSubmit}
+        >
           <div className="contact-field-row">
             {fields.slice(0, 2).map((field) => (
               <ContactField key={field[1]} field={field} />
@@ -87,13 +91,20 @@ function ContactSection() {
             />
           </div>
 
-          {status in STATUS_MESSAGES && (
-            <p className={`contact-status contact-status--${status}`}>
-              {STATUS_MESSAGES[status as keyof typeof STATUS_MESSAGES]}
+          {(status === "success" || status === "error") && (
+            <p
+              className={`contact-status contact-status--${status}`}
+              role={status === "error" ? "alert" : "status"}
+            >
+              {STATUS_MESSAGES[status]}
             </p>
           )}
 
-          <button className="contact-submit ui-button" disabled={isSending}>
+          <button
+            className="contact-submit ui-button"
+            type="submit"
+            disabled={isSending}
+          >
             {isSending ? "SENDING..." : "SEND MESSAGE"}
             {!isSending && <FiSend aria-hidden="true" />}
           </button>

@@ -79,7 +79,9 @@ function Navbar() {
       </nav>
 
       {isMobileMenuOpen && (
-        <div className="mobile-navbar-menu">{navLinks(true)}</div>
+        <nav className="mobile-navbar-menu" aria-label="Mobile navigation">
+          {navLinks(true)}
+        </nav>
       )}
 
       <ResumeModal

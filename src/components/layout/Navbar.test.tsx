@@ -1,41 +1,123 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { fireEvent, render, screen, within } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { navigationLinks } from "../../data/navigation";
 import Navbar from "./Navbar";
 
+function expectNavigationLinks(container: HTMLElement) {
+  expect(navigationLinks).toHaveLength(5);
+
+  navigationLinks.forEach(({ label, href }) => {
+    expect(
+      within(container).getByRole("link", {
+        name: new RegExp(label, "i"),
+      }),
+    ).toHaveAttribute("href", href);
+  });
+}
+
 describe("Navbar", () => {
-  let nav: HTMLElement;
+  let mainNavigation: HTMLElement;
 
   beforeEach(() => {
     render(<Navbar />);
-    nav = screen.getByRole("navigation", { name: /main navigation/i });
+
+    mainNavigation = screen.getByRole("navigation", {
+      name: /main navigation/i,
+    });
   });
 
   it("renders as the main navigation landmark", () => {
-    expect(nav).toBeInTheDocument();
+    expect(mainNavigation).toBeInTheDocument();
   });
 
-  it("renders the logo link pointing to #hero", () => {
+  it("renders the logo link pointing to the hero section", () => {
     expect(
-      within(nav).getByRole("link", { name: /go to top/i }),
+      within(mainNavigation).getByRole("link", {
+        name: /go to top/i,
+      }),
     ).toHaveAttribute("href", "#hero");
   });
 
-  it("renders all active navigation links with correct hrefs", () => {
-    expect(within(nav).getByRole("link", { name: /home/i })).toHaveAttribute(
-      "href",
-      "#hero",
-    );
-    expect(within(nav).getByRole("link", { name: /about/i })).toHaveAttribute(
-      "href",
-      "#about",
-    );
+  it("renders all five navigation links with the correct destinations", () => {
+    expectNavigationLinks(mainNavigation);
   });
 
-  it("opens the resume modal", () => {
-    fireEvent.click(within(nav).getByRole("button", { name: /resume\.pdf/i }));
+  it("opens and closes the mobile navigation menu", async () => {
+    const user = userEvent.setup();
+
+    const menuButton = within(mainNavigation).getByRole("button", {
+      name: /toggle navigation menu/i,
+    });
+
+    expect(menuButton).toHaveAttribute("aria-expanded", "false");
+    expect(
+      screen.queryByRole("navigation", {
+        name: /mobile navigation/i,
+      }),
+    ).not.toBeInTheDocument();
+
+    await user.click(menuButton);
+
+    expect(menuButton).toHaveAttribute("aria-expanded", "true");
+
+    const mobileNavigation = screen.getByRole("navigation", {
+      name: /mobile navigation/i,
+    });
+
+    expect(mobileNavigation).toBeInTheDocument();
+    expectNavigationLinks(mobileNavigation);
+
+    await user.click(menuButton);
+
+    expect(menuButton).toHaveAttribute("aria-expanded", "false");
+    expect(
+      screen.queryByRole("navigation", {
+        name: /mobile navigation/i,
+      }),
+    ).not.toBeInTheDocument();
+  });
+
+  it("closes the mobile menu after selecting a navigation link", async () => {
+    const user = userEvent.setup();
+
+    const menuButton = within(mainNavigation).getByRole("button", {
+      name: /toggle navigation menu/i,
+    });
+
+    await user.click(menuButton);
+
+    const mobileNavigation = screen.getByRole("navigation", {
+      name: /mobile navigation/i,
+    });
+
+    await user.click(
+      within(mobileNavigation).getByRole("link", {
+        name: /projects/i,
+      }),
+    );
+
+    expect(menuButton).toHaveAttribute("aria-expanded", "false");
+    expect(
+      screen.queryByRole("navigation", {
+        name: /mobile navigation/i,
+      }),
+    ).not.toBeInTheDocument();
+  });
+
+  it("opens the resume modal", async () => {
+    const user = userEvent.setup();
+
+    await user.click(
+      within(mainNavigation).getByRole("button", {
+        name: /resume\.pdf/i,
+      }),
+    );
 
     expect(
-      screen.getByRole("dialog", { name: /hey there/i }),
+      screen.getByRole("dialog", {
+        name: /hey there/i,
+      }),
     ).toBeInTheDocument();
   });
 });
